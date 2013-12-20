@@ -1,7 +1,7 @@
 <% if @user %>
 	<h1>Welcome, <a href="/users/<%=@user.id%>"><%=@user.username%></a></h1>
 	<a href="/users/sign_out">sign out</a>
-<% else %> 
+<% else %>
 	<a href="/users/sign_up">sign up</a>
 	<a href="/users/sign_in">sign in</a>
 <% end %>
@@ -15,19 +15,19 @@
 <hr>
 <% end %>
 
-<% @posts.each do |post| %> 
+<% @posts.each do |post| %>
 	<div class="post">
 		<h1>
 			<%= post.title %>
 		</h1>
 			<p class="italics" >User: <%= post.user.username %></p>
 			<p class="italics" >Created at: <%= post.created_at.asctime %></p>
-		<div class= "body">
+		<div class= "body block_overflow">
 			<%= post.body %>
 		</div>
 		<a href="/posts/<%=post.id%>/like">LIKE</a>
 		<div class="comments">
-			<% post.comments.each do |comment| %> 
+			<% post.comments.each do |comment| %>
 				<p><%=comment.user.username%>: <%= comment.body %></p>
 			<% end %>
 		</div>
